@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -6,6 +7,8 @@ public class Main {
 		System.out.println("== 프로그램 시작 ==");
 		
 		Scanner sc = new Scanner(System.in);
+		
+		List<Article> articles = new ArrayList<>();
 		
 		int id = 1;
 		
@@ -33,6 +36,13 @@ public class Main {
 				String title = sc.nextLine().trim();
 				System.out.print("내용 : ");
 				String body = sc.nextLine().trim();
+				
+//				Article article = new Article(id, title, body);
+			
+//				articles.add(article);
+				
+				articles.add(new Article(id, title, body));
+				
 				System.out.println(id + "번 글이 생성되었습니다. ");
 				id++;
 
@@ -45,5 +55,19 @@ public class Main {
 		sc.close();
 		
 		System.out.println("== 프로그램 끝 ==");
+	}
+}
+
+
+class Article {
+	int id;
+	String title;
+	String body;
+	
+	Article(int id, String title, String body) {
+		this.id = id;
+		this.title = title;
+		this.body = body;
+		
 	}
 }
